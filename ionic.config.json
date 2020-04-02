@@ -1,0 +1,7 @@
+{
+  "name": "donem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
