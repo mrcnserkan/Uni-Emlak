@@ -1,19 +1,64 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
+
+/** Fonts **/
+@font-face {
+  font-family: 'Default';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Default';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../assets/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Default';
+  font-style: italic;
+  font-weight: normal;
+  src: url('../assets/fonts/Montserrat-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Default';
+  font-style: italic;
+  font-weight: lighter;
+  src: url('../assets/fonts/Montserrat-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Default';
+  font-style: italic;
+  font-weight: bold;
+  src: url('../assets/fonts/Montserrat-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Default';
+  font-style: normal;
+  font-weight: lighter;
+  src: url('../assets/fonts/Montserrat-Light.ttf');
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary: #2c023d;
+  --ion-color-primary-rgb: rgb(44, 2, 61);
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #6a2088;
+  --ion-color-primary-tint: #9651b1;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
-  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary: #61045F;
+  --ion-color-secondary-rgb: rgb(97, 4, 95);
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
   --ion-color-secondary-shade: #36abe0;
@@ -74,6 +119,11 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
+  --ion-color-transparent: rgba(0, 0, 0, 0);
+
+  --ion-font-family: 'Default';
 }
 
 @media (prefers-color-scheme: dark) {
