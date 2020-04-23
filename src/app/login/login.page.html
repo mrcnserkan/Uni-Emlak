@@ -1,0 +1,25 @@
+
+<ion-content no-bounce>
+
+  <img src="../../assets/g368.png" id="top">
+  <img src="../../assets/bottom.png" id="bottom">
+  <ion-button routerLink="/" routerDirection="root" id="close" fill="clear" size="large">
+     <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+  </ion-button>
+  <div id="container">
+    <h1>Giriş Yap</h1>
+    <ion-item>
+      <ion-input placeholder="E-posta" type="email"></ion-input>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Şifre" type="password"></ion-input>
+      <ion-icon name="lock-open-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div id="forget">
+      <ion-button fill="clear" size="small">Şifremi unuttum</ion-button>
+    </div>
+    <ion-button shape="round" id="login-button">Giriş Yap</ion-button>
+  </div>
+
+</ion-content>

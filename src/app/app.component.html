@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="push">
       <ion-content>
         
         <ion-grid>
@@ -27,9 +27,10 @@
 
 
         <ion-grid class="buttons">
+          <ion-menu-toggle>
           <ion-row>
             <ion-col>
-              <ion-button fill="outline" color="secondary">Giriş Yap</ion-button>
+              <ion-button [routerLink]="['/login']" routerDirection="forward" fill="outline" color="secondary">Giriş Yap</ion-button>
               <ion-button color="transparent" class="footer-button">Kayıt Ol</ion-button>
               <!--<ion-button fill="outline">
                 Çıkış Yap
@@ -37,6 +38,7 @@
               </ion-button>-->
             </ion-col>
           </ion-row>
+          </ion-menu-toggle>
         </ion-grid>
 
       </ion-content>
