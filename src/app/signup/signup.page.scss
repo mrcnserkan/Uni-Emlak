@@ -7,23 +7,23 @@
     transform: translateY(-40%);
 }
 
-#top {
+#top-right {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 120px;
+    right: 0;
+    width: 220px;
 }
 
-#bottom {
-    position: fixed;
-    bottom: -20px;
-    width: 100%;
+#top-left {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 80px;
 }
-
 
 #container ion-item {
     border: 1.5px solid;
-    border-color: rgba(44,2,61,.5);
+    border-color: rgba(44, 2, 61, .5);
     border-radius: 30px;
     margin-top: 20px;
     width: 85%;
@@ -35,20 +35,14 @@
 }
 
 #container h1 {
-    margin-bottom: 40px;
-}
-
-#forget {
-    text-align: end;
-    margin-right: 7.5%;
-    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 ion-button {
     text-transform: none;
 }
 
-#login-button {
+#signup-button {
     margin-top: 20px;
     width: 150px;
     height: 45px;
@@ -60,12 +54,13 @@ ion-button {
     position: absolute;
     top: 3%;
     right: 1%;
+    color: rgba(255, 255, 255, .7);
 }
 
-#signup {
+#login {
     position: absolute;
     bottom: 4px;
-    width:100%;
-    color: rgba(255, 255, 255, .8);
+    width: 100%;
+    color: rgba(0, 0, 0, .8);
     text-align: center;
 }

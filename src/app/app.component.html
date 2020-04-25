@@ -10,7 +10,8 @@
                 <ion-avatar slot="start">
                   <img src="assets/user.svg">
                 </ion-avatar>
-                <ion-label>Hoş geldiniz</ion-label>
+                <ion-label *ngIf="!api.isLogin">Hoş geldiniz</ion-label>
+                <ion-label *ngIf="api.isLogin">{{api.userData.name}} {{api.userData.surname}}</ion-label>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -30,12 +31,9 @@
           <ion-menu-toggle>
           <ion-row>
             <ion-col>
-              <ion-button [routerLink]="['/login']" routerDirection="forward" fill="outline" color="secondary">Giriş Yap</ion-button>
-              <ion-button color="transparent" class="footer-button">Kayıt Ol</ion-button>
-              <!--<ion-button fill="outline">
-                Çıkış Yap
-                <ion-icon slot="end" name="log-out-outline"></ion-icon>
-              </ion-button>-->
+              <ion-button *ngIf="!api.isLogin" [routerLink]="['/login']" routerDirection="forward" fill="outline" color="secondary">Giriş Yap</ion-button>
+              <ion-button *ngIf="!api.isLogin" [routerLink]="['/signup']" routerDirection="forward" color="transparent" class="footer-button">Kayıt Ol</ion-button>
+              <ion-button *ngIf="api.isLogin" (click)="logoff()" fill="outline">Çıkış Yap</ion-button>
             </ion-col>
           </ion-row>
           </ion-menu-toggle>

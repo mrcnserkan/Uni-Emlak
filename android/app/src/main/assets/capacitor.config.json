@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.ananasjam.donem",
   "appName": "donem",
   "bundledWebRuntime": false,
   "npmClient": "npm",
