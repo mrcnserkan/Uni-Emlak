@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ActivatedRoute } from '@angular/router';
 import { ApiService } from './api.service';
 import { ServiceService } from './service.service';
- 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,8 +16,7 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private route: ActivatedRoute,
-    private api: ApiService,
+    public api: ApiService,
     private service: ServiceService,
     private alertController: AlertController
   ) {
