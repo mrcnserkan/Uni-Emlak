@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Administrator',
-      url: '/folder/Ayarlar',
+      url: '/folder/Administrator',
       icon: 'code-slash'
     }
   ];
