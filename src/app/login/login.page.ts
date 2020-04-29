@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { ApiService } from '../api.service';
-import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +15,9 @@ export class LoginPage implements OnInit {
   responseData: any;
 
   constructor(
-    private keyboard: Keyboard,
     private api: ApiService,
-    private toastCtrl: ToastController,
-    private router: Router
+    private router: Router,
+    private service: ServiceService
     ) {
     window.addEventListener('keyboardWillShow', (event) => {
       this.keybControl = false;
@@ -35,7 +33,7 @@ export class LoginPage implements OnInit {
   login() {
     if (this.userData.email && this.userData.password) {
       if (this.validateEmail(this.userData.email) || this.validatePhoneNumber(this.userData.email)) {
-        // this.common.presentLoading("");
+        this.service.presentLoading();
         this.api.postData(this.userData, 'login').then((result) => {
           this.responseData = result;
           // console.log(result);
@@ -47,31 +45,32 @@ export class LoginPage implements OnInit {
             // localStorage.setItem('favorites', this.responseData.favorites);
             localStorage.setItem('notif', 'true');
             // this.oneSignal.sendTag("user_id", this.resposeData.userData.user_id);
+            this.service.closeLoading();
+            this.service.presentToast('Başarıyla giriş yaptınız.', 'bottom');
             this.goHome();
-            this.presentToast('Başarıyla Giriş Yaptınız.');
           } else if (this.responseData.error === 'Onaysız hesap') {
-            // this.common.closeLoading();
-            this.presentToast('Hesabınız onaylı değil. Gerekli onay bağlantısı kayıt olduğunuzda e-mail adresinize gönderilmiştir.');
+            this.service.closeLoading();
+            // tslint:disable-next-line:max-line-length
+            this.service.presentToast('Hesabınız onaylı değil. Gerekli onay bağlantısı kayıt olduğunuzda e-posta adresinize gönderilmiştir.', 'top', 3);
           } else {
-            // this.common.closeLoading();
-            this.presentToast('Giriş bilgileri hatalı.');
+            this.service.closeLoading();
+            this.service.presentToast('Giriş bilgileri hatalı.', 'top');
           }
 
         }, (err) => {
-          // this.common.closeLoading();
-          this.presentToast('Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.');
+          this.service.closeLoading();
+          this.service.presentToast('Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.', 'top');
         });
       } else {
-        this.presentToast('Lütfen geçerli bir e-mail adresi veya telefon numarası giriniz.');
+        this.service.presentToast('Lütfen geçerli bir e-posta adresi veya telefon numarası giriniz.', 'top');
       }
     } else {
-      this.presentToast('Lütfen boş alan bırakmayınız.');
+      this.service.presentToast('Lütfen boş alan bırakmayınız.', 'top');
     }
 
   }
 
   validateEmail(email) {
-    // tslint:disable-next-line:max-line-length
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
@@ -79,15 +78,6 @@ export class LoginPage implements OnInit {
   validatePhoneNumber(phone) {
     const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     return re.test(phone);
-  }
-
-  async presentToast(msg) {
-    const toast = await this.toastCtrl.create({
-      message: msg,
-      duration: 2000,
-      position: 'top'
-    });
-    toast.present();
   }
 
   goHome() {

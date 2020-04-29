@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ActivatedRoute } from '@angular/router';
@@ -20,7 +20,8 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private route: ActivatedRoute,
     private api: ApiService,
-    private service: ServiceService
+    private service: ServiceService,
+    private alertController: AlertController
   ) {
     this.initializeApp();
   }
@@ -51,6 +52,11 @@ export class AppComponent implements OnInit {
       title: 'Ayarlar',
       url: '/folder/Ayarlar',
       icon: 'settings'
+    },
+    {
+      title: 'Administrator',
+      url: '/folder/Ayarlar',
+      icon: 'code-slash'
     }
   ];
 
@@ -76,13 +82,34 @@ export class AppComponent implements OnInit {
     }
   }
 
-  logoff() {
+  async logoff() {
     if (localStorage.getItem('userData')) {
-      localStorage.removeItem('userData');
-      localStorage.removeItem('notif');
-      this.api.userData = null;
-      this.api.isLogin = false;
-      this.service.presentToast('Başarıyla çıkış yaptınız', 'bottom', 1.5);
+      const alert = await this.alertController.create({
+        header: 'Çıkış',
+        message: 'Emin misiniz?',
+        buttons: [
+          {
+            text: 'Vazgeç',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              // console.log('Cancel');
+            }
+          }, {
+            text: 'Evet',
+            handler: () => {
+              localStorage.removeItem('userData');
+              localStorage.removeItem('notif');
+              this.api.userData = null;
+              this.api.isLogin = false;
+              this.service.presentToast('Başarıyla çıkış yaptınız', 'bottom', 1.5);
+            }
+          }
+        ]
+      });
+
+      await alert.present();
     }
   }
+
 }

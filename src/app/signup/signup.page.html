@@ -9,27 +9,31 @@
   <div id="container">
     <h1>Kayıt Ol</h1>
     <ion-item>
-      <ion-input placeholder="İsim" type="text"></ion-input>
+      <ion-input [(ngModel)]="userData.name" placeholder="İsim" type="text"></ion-input>
       <ion-icon name="person-outline" slot="start"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Soyisim" type="text"></ion-input>
+      <ion-input [(ngModel)]="userData.surname" placeholder="Soyisim" type="text"></ion-input>
       <ion-icon name="person-outline" slot="start"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="E-posta" type="email"></ion-input>
+      <ion-input [(ngModel)]="userData.email" placeholder="E-posta" type="email"></ion-input>
       <ion-icon name="mail-outline" slot="start"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Şifre" type="password"></ion-input>
+      <ion-input [(ngModel)]="userData.phone" placeholder="Telefon numarası 5..." type="tel"></ion-input>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="userData.password" placeholder="Şifre" type="password"></ion-input>
       <ion-icon name="lock-open-outline" slot="start"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Şifre tekrar" type="password"></ion-input>
+      <ion-input [(ngModel)]="password2" placeholder="Şifre tekrar" type="password"></ion-input>
       <ion-icon name="lock-open-outline" slot="start"></ion-icon>
     </ion-item>
 
-    <ion-button shape="round" id="signup-button">Kayıt Ol</ion-button>
+    <ion-button (click)="signup()" shape="round" id="signup-button">Kayıt Ol</ion-button>
   </div>
 
   <div *ngIf="keybControl" id="login" [routerLink]="['/login']">

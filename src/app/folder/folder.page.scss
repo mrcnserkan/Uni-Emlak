@@ -2,6 +2,15 @@ ion-menu-button {
   color: var(--ion-color-light);
 }
 
+ion-toolbar {
+  --min-height: 64px;
+}
+
+ion-title {
+  font-size: 22px;
+  font-weight: lighter;
+}
+
 #container {
   text-align: center;
   position: absolute;
