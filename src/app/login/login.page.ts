@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
-    private service: ServiceService
+    private service: ServiceService,
+    private alertCtrl: AlertController
     ) {
     window.addEventListener('keyboardWillShow', (event) => {
       this.keybControl = false;
@@ -68,6 +70,44 @@ export class LoginPage implements OnInit {
       this.service.presentToast('Lütfen boş alan bırakmayınız.', 'top');
     }
 
+  }
+
+  async forget() {
+    const alert = await this.alertCtrl.create({
+      header: 'Şifre Sıfırlama',
+      message: 'Lütfen kayıt olurken kullandığınız e-posta adresinizi giriniz.',
+      mode: 'ios',
+      inputs: [
+        {
+          name: 'email',
+          id: 'email',
+          type: 'email',
+          placeholder: 'E-posta adresiniz'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Vazgeç',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            // console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Onayla',
+          handler: data => {
+            if (this.validateEmail(data.email)) {
+              console.log(data.email);
+            } else {
+              this.service.presentToast('Lütfen geçerli bir e-posta adresi giriniz.', 'top');
+              return false;
+            }
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   validateEmail(email) {

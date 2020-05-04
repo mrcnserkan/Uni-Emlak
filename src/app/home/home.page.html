@@ -1,0 +1,101 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="secondary" mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button><img src="../../assets/menu.svg" style="width: 20px"></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="header">
+    <ion-title>Vitrin</ion-title>
+    <!--<ion-fab horizontal="end" vertical="center" slot="fixed">
+      <ion-fab-button color="transparent">
+        <ion-icon color="light" name="location-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>-->
+    <ion-chip>
+      <ion-icon name="location-sharp" color="light"></ion-icon>
+      <ion-label color="light">Sincan, Ankara</ion-label>
+    </ion-chip>
+
+  </div>
+
+  <div class="content">
+    <div class="categories"><h1>Kategoriler</h1></div>
+    <ion-slides [options]="catSlideOpts" class="cat-slides">
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <span class="icon-sofa"></span>
+          <ion-card-header>
+            <ion-card-title>İkinci El</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <span class="icon-laugh"></span>
+          <ion-card-header>
+            <ion-card-title>Ev Arkadaşı</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <span class="icon-book"></span>
+          <ion-card-header>
+            <ion-card-title>Ders Notu</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <span class="icon-education"></span>
+          <ion-card-header>
+            <ion-card-title>Özel Ders</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="one-cikan"><h1>Öne Çıkanlar</h1></div>
+    <ion-slides [options]="oneCikanSlideOpts" class="one-cikan-slides">
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <img src="https://picsum.photos/600">
+          <ion-card-header>
+            <ion-card-title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <img src="https://picsum.photos/500">
+          <ion-card-header>
+            <ion-card-title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <img src="https://picsum.photos/700">
+          <ion-card-header>
+            <ion-card-title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card mode="ios" button="true" type="button">
+          <img src="https://picsum.photos/800">
+          <ion-card-header>
+            <ion-card-title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+</ion-content>

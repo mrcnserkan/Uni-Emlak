@@ -17,7 +17,7 @@
       <ion-icon name="lock-open-outline" slot="start"></ion-icon>
     </ion-item>
     <div id="forget">
-      <ion-button fill="clear" size="small">Şifremi unuttum</ion-button>
+      <ion-button (click)="forget()" fill="clear" size="small">Şifremi unuttum</ion-button>
     </div>
     <ion-button (click)="login()" shape="round" id="login-button">Giriş Yap</ion-button>
   </div>

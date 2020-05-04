@@ -1,0 +1,149 @@
+ion-menu-button {
+    color: var(--ion-color-light);
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+ion-toolbar {
+    --min-height: 64px;
+}
+
+ion-content {
+    --background: var(--ion-color-secondary);
+}
+
+ion-content ion-toolbar {
+    --background: transparent;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 24px 20px 24px;
+    background: var(--ion-color-secondary);
+}
+
+.header ion-title {
+    color: var(--ion-color-light);
+    font-size: 26px;
+    font-weight: lighter;
+    padding-inline-start: 0px;
+}
+
+.header ion-fab-button {
+    --box-shadow: none;
+}
+
+.content {
+    background: #fffffffa;
+    width: 100%;
+    height: 800px;
+    padding: 15px 0;
+    border-radius: 25px 25px 0 0;
+}
+
+.categories {
+    margin-left: 15px;
+}
+
+.one-cikan {
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+
+ion-slides {
+    padding-left: 6px;
+}
+
+ion-card-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ion-card-title {
+    font-size: 16px;
+}
+
+.cat-slides ion-card {
+    width: 320px;
+    height: 130px;
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.one-cikan-slides ion-card {
+    position: relative;
+    width: 320px;
+    height: 160px;
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.one-cikan-slides ion-card-header {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #00000088;
+}
+
+.one-cikan-slides ion-card-title {
+    display: inline-block;
+    color: var(--ion-color-light);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.one-cikan-slides img {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 320px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.icon-sofa {
+    background-image: url(../../assets/sofa.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-laugh {
+    background-image: url(../../assets/laugh.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-book {
+    background-image: url(../../assets/book.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-education {
+    background-image: url(../../assets/education.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}

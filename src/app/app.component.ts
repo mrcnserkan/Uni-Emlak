@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Vitrin',
-      url: '/folder/Vitrin',
+      url: '/home',
       icon: 'home'
     },
     {
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
 
-    if (localStorage.getItem('userData')){
+    if (localStorage.getItem('userData')) {
       const data = JSON.parse(localStorage.getItem('userData'));
       this.api.userData = data.userData;
       this.api.isLogin = true;
@@ -84,6 +84,7 @@ export class AppComponent implements OnInit {
       const alert = await this.alertController.create({
         header: 'Çıkış',
         message: 'Emin misiniz?',
+        mode: 'ios',
         buttons: [
           {
             text: 'Vazgeç',
@@ -99,7 +100,7 @@ export class AppComponent implements OnInit {
               localStorage.removeItem('notif');
               this.api.userData = null;
               this.api.isLogin = false;
-              this.service.presentToast('Başarıyla çıkış yaptınız', 'bottom', 1.5);
+              this.service.presentToast('Başarıyla çıkış yaptınız', 'bottom', 1.1);
             }
           }
         ]

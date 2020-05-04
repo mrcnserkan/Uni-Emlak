@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class ApiService {
 
-  apiUrl = 'http://192.168.1.38/donem/api/';
+  apiUrl = 'https://ananasjam.com/donem/api/';
   isLogin = false;
   userData: any;
 
