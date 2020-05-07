@@ -8,42 +8,42 @@
   font-family: 'Default';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/fonts/Metropolis-Regular.ttf');
+  src: url('../assets/Metropolis-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Default';
   font-style: normal;
   font-weight: bold;
-  src: url('../assets/fonts/Metropolis-Bold.ttf');
+  src: url('../assets/Metropolis-Bold.ttf');
 }
 
 @font-face {
   font-family: 'Default';
   font-style: italic;
   font-weight: normal;
-  src: url('../assets/fonts/Metropolis-RegularItalic.ttf');
+  src: url('../assets/Metropolis-RegularItalic.ttf');
 }
 
 @font-face {
   font-family: 'Default';
   font-style: italic;
   font-weight: lighter;
-  src: url('../assets/fonts/Metropolis-LightItalic.ttf');
+  src: url('../assets/Metropolis-LightItalic.ttf');
 }
 
 @font-face {
   font-family: 'Default';
   font-style: italic;
   font-weight: bold;
-  src: url('../assets/fonts/Metropolis-BoldItalic.ttf');
+  src: url('../assets/Metropolis-BoldItalic.ttf');
 }
 
 @font-face {
   font-family: 'Default';
   font-style: normal;
   font-weight: lighter;
-  src: url('../assets/fonts/Metropolis-Light.ttf');
+  src: url('../assets/Metropolis-Light.ttf');
 }
 
 /** Ionic CSS Variables **/
@@ -121,8 +121,18 @@
   --ion-color-light-tint: #f5f6f9;
 
 
-  --ion-color-transparent: rgba(0, 0, 0, 0);
+  --ion-color-contentbg: #fffffffa;
+  --ion-color-contentbg-rgb: rgba(255, 255, 255, 0.98);
+  --ion-color-contentbg-contrast: #000000;
+  --ion-color-contentbg-contrast-rgb: rgb(0, 0, 0);
+  --ion-color-contentbg-shade: #d7d8da;
+  --ion-color-contentbg-tint: #f5f6f9;
 
+  --ion-color-transparent: rgba(0, 0, 0, 0);
+  --ion-color-contentbg: #fffffffa
+}
+
+body {
   --ion-font-family: 'Default';
 }
 

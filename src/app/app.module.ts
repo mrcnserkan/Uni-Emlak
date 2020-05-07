@@ -19,7 +19,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      mode: 'md'
+    }),
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

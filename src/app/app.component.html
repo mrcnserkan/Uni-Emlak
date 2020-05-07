@@ -22,6 +22,7 @@
             <ion-item *ngIf="i != 5" (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon size="large" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label><h1>{{ p.title }}</h1></ion-label>
+              <ion-badge color="success" slot="end"></ion-badge>
             </ion-item>
             <ion-item *ngIf="i == 5 && api.isLogin && api.userData.user_status == 2" (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon+ '-outline'" [md]="p.icon + '-sharp'"></ion-icon>

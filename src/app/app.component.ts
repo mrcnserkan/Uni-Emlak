@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ApiService } from './api.service';
-import { ServiceService } from './service.service';
+import { ApiService } from './services/api.service';
+import { ServiceService } from './services/service.service';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Mesajlar',
-      url: '/folder/Mesajlar',
+      url: '/messages',
       icon: 'chatbubbles'
     },
     {
@@ -59,7 +59,8 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.backgroundColorByHexString('#2c023d');
+      this.statusBar.backgroundColorByHexString('#61045F');
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
-import { ServiceService } from '../service.service';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { ServiceService } from '../services/service.service';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -19,14 +20,27 @@ export class LoginPage implements OnInit {
     private api: ApiService,
     private router: Router,
     private service: ServiceService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private keyboard: Keyboard,
+    private zone: NgZone
     ) {
-    window.addEventListener('keyboardWillShow', (event) => {
-      this.keybControl = false;
-    });
-    window.addEventListener('keyboardWillHide', (event) => {
-      this.keybControl = true;
-    });
+      this.keyboard.onKeyboardWillShow().subscribe(() => {
+        this.zone.run(() => {
+          this.keybControl = false;
+        });
+      });
+      this.keyboard.onKeyboardWillHide().subscribe(() => {
+        this.zone.run(() => {
+          this.keybControl = true;
+        });
+      });
+
+      /*window.addEventListener('keyboardWillShow', event => {
+        this.keybControl = false;
+      });
+      window.addEventListener('keyboardWillHide', event => {
+        this.keybControl = true;
+      });*/
   }
 
   ngOnInit() {
