@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class ApiService {
 
-  apiUrl = 'https://ananasjam.com/donem/api/';
+  MAIN_API_URL = 'https://ananasjam.com/donem/api/';
+
   isLogin = false;
   userData: any;
 
@@ -21,7 +22,7 @@ export class ApiService {
           'Content-Type': 'application/x-www-form-urlencoded'
         })
       };
-      this.http.post(this.apiUrl + type, JSON.stringify(credentials), httpOptions).
+      this.http.post(this.MAIN_API_URL + type, JSON.stringify(credentials), httpOptions).
         subscribe(res => {
           resolve(res);
         },
@@ -35,7 +36,7 @@ export class ApiService {
 
   getData(type) {
     return new Promise((resolve, reject) => {
-      this.http.get(this.apiUrl + type).
+      this.http.get(this.MAIN_API_URL + type).
         subscribe(res => {
           resolve(res);
         },
@@ -43,6 +44,17 @@ export class ApiService {
           reject(err);
         });
 
+    });
+  }
+
+  geocoding(lat, lon) {
+    return new Promise((resolve, reject) => {
+      this.http.get('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lon + '&zoom=18&addressdetails=1').subscribe(res => {
+        resolve(res);
+      },
+        (err) => {
+          reject(err);
+        });
     });
   }
 

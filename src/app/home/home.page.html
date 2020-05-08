@@ -18,7 +18,8 @@
     </ion-fab>-->
     <ion-chip>
       <ion-icon name="location-sharp" color="light"></ion-icon>
-      <ion-label color="light">Sincan, Ankara</ion-label>
+      <ion-label *ngIf="location" color="light">{{address.town}}, {{address.province}}</ion-label>
+      <ion-label *ngIf="!location" (click)="getLocation()" color="light">Konum Belirle</ion-label>
     </ion-chip>
 
   </div>
@@ -64,7 +65,7 @@
     <ion-slides [options]="oneCikanSlideOpts" class="one-cikan-slides">
       <ion-slide>
         <ion-card mode="ios" button="true" type="button">
-          <img src="https://picsum.photos/600">
+          <img src="../../assets/salon.jpg">
           <ion-card-header>
             <ion-card-title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</ion-card-title>
           </ion-card-header>

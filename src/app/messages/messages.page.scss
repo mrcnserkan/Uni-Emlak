@@ -35,7 +35,7 @@ ion-content ion-toolbar {
 .content {
     background: #ffffff;
     width: 100%;
-    height: 800px;
+    height: calc(100% - 66px);
     padding: 15px 0;
     border-radius: 25px 25px 0 0;
 }
@@ -46,6 +46,12 @@ ion-list {
 
 h1 {
     font-size: 18px;
+}
+
+ion-avatar {
+    width:45px;
+    height: 45px;
+    margin-bottom: 14px;
 }
 
 .lasttime {
