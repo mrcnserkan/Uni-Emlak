@@ -2,57 +2,6 @@
 // http://ionicframework.com/docs/theming/
 
 
-
-/** Fonts **/
-@font-face {
-  font-family: 'Default';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../assets/Metropolis-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Default';
-  font-style: normal;
-  font-weight: bold;
-  src: url('../assets/Metropolis-Bold.ttf');
-}
-
-@font-face {
-  font-family: 'Default';
-  font-style: italic;
-  font-weight: normal;
-  src: url('../assets/Metropolis-RegularItalic.ttf');
-}
-
-@font-face {
-  font-family: 'Default';
-  font-style: italic;
-  font-weight: lighter;
-  src: url('../assets/Metropolis-LightItalic.ttf');
-}
-
-@font-face {
-  font-family: 'Default';
-  font-style: italic;
-  font-weight: bold;
-  src: url('../assets/Metropolis-BoldItalic.ttf');
-}
-
-@font-face {
-  font-family: 'Default';
-  font-style: normal;
-  font-weight: lighter;
-  src: url('../assets/Metropolis-Light.ttf');
-}
-
-:root,
-:root[mode="md"],
-:root[mode="ios"] {
-  --ion-font-family: 'Default';
-  font-family: var(--ion-font-family) !important;
-}
-
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

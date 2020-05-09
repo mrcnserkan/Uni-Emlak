@@ -12,6 +12,9 @@
     "e2e": "ng e2e",
     "resources": "capacitor-resources -p android"
   },
+  "config": {
+    "ionic_purge_unused_fonts": false
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~8.2.14",

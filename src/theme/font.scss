@@ -1,0 +1,49 @@
+/** Fonts **/
+@font-face {
+    font-family: 'Default';
+    font-style: normal;
+    font-weight: normal;
+    src: url('src/assets/Metropolis-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Default';
+    font-style: normal;
+    font-weight: bold;
+    src: url('src/assets/Metropolis-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Default';
+    font-style: italic;
+    font-weight: normal;
+    src: url('src/assets/Metropolis-RegularItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Default';
+    font-style: italic;
+    font-weight: lighter;
+    src: url('src/assets/Metropolis-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Default';
+    font-style: italic;
+    font-weight: bold;
+    src: url('src/assets/Metropolis-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Default';
+    font-style: normal;
+    font-weight: lighter;
+    src: url('src/assets/Metropolis-Light.ttf');
+}
+
+:root,
+:root[mode="md"],
+:root[mode="ios"] {
+    --ion-font-family: 'Default', sans-serif;
+    font-family: var(--ion-font-family) !important;
+}
