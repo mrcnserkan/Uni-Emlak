@@ -1,7 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ServiceService } from '../services/service.service';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,10 +19,9 @@ export class SignupPage implements OnInit {
     private api: ApiService,
     private service: ServiceService,
     private router: Router,
-    private keyboard: Keyboard,
     private zone: NgZone
     ) {
-      this.keyboard.onKeyboardWillShow().subscribe(() => {
+      /*this.keyboard.onKeyboardWillShow().subscribe(() => {
         this.zone.run(() => {
           this.keybControl = false;
         });
@@ -32,14 +30,18 @@ export class SignupPage implements OnInit {
         this.zone.run(() => {
           this.keybControl = true;
         });
-      });
-
-      /*window.addEventListener('keyboardWillShow', (event) => {
-        this.keybControl = false;
-      });
-      window.addEventListener('keyboardWillHide', (event) => {
-        this.keybControl = true;
       });*/
+
+      window.addEventListener('keyboardWillShow', event => {
+        this.zone.run(() => {
+          this.keybControl = false;
+        });
+      });
+      window.addEventListener('keyboardWillHide', event => {
+        this.zone.run(() => {
+          this.keybControl = true;
+        });
+      });
   }
 
   ngOnInit() {
