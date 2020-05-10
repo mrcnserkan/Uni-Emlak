@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { ServiceService } from '../services/service.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,8 @@ export class LoginPage implements OnInit {
     private router: Router,
     private service: ServiceService,
     private alertCtrl: AlertController,
-    private zone: NgZone
+    private zone: NgZone,
+    private platform: Platform
     ) {
       /*this.keyboard.onKeyboardWillShow().subscribe(() => {
         this.zone.run(() => {
@@ -32,6 +33,17 @@ export class LoginPage implements OnInit {
           this.keybControl = true;
         });
       });*/
+
+      if (this.platform.is('mobileweb')) {
+        this.platform.resize.subscribe(() => {
+          const height = this.platform.height().valueOf();
+          if (height < 590) {
+            this.keybControl = false;
+          } else {
+            this.keybControl = true;
+          }
+        });
+      }
 
       window.addEventListener('keyboardWillShow', event => {
         this.zone.run(() => {
