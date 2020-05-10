@@ -1,49 +1,59 @@
-/** Fonts **/
 @font-face {
-    font-family: 'Default';
-    font-style: normal;
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-Regular.ttf') format('truetype');
     font-weight: normal;
-    src: url('src/assets/Metropolis-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Default';
     font-style: normal;
-    font-weight: bold;
-    src: url('src/assets/Metropolis-Bold.ttf');
 }
 
 @font-face {
-    font-family: 'Default';
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-LightItalic.ttf') format('truetype');
+    font-weight: 300;
     font-style: italic;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-RegularItalic.ttf') format('truetype');
     font-weight: normal;
-    src: url('src/assets/Metropolis-RegularItalic.ttf');
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'Default';
-    font-style: italic;
-    font-weight: lighter;
-    src: url('src/assets/Metropolis-LightItalic.ttf');
-}
-
-@font-face {
-    font-family: 'Default';
-    font-style: italic;
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-BoldItalic.ttf') format('truetype');
     font-weight: bold;
-    src: url('src/assets/Metropolis-BoldItalic.ttf');
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'Default';
-    font-style: normal;
-    font-weight: lighter;
-    src: url('src/assets/Metropolis-Light.ttf');
+    font-family: 'Metropolis';
+    src: url('src/assets/Metropolis-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
 }
 
-:root,
-:root[mode="md"],
-:root[mode="ios"] {
-    --ion-font-family: 'Default', sans-serif;
-    font-family: var(--ion-font-family) !important;
+* {
+    --ion-font-family: 'Metropolis' !important;
 }
