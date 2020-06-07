@@ -1,0 +1,99 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="secondary" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>İlan Detayları</ion-title>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only">
+        <ion-icon name="heart-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only">
+        <ion-icon name="share-social-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="height:244px;background-color:#000">
+    <ion-slides pager="true" paginationType="bullet">
+      <ion-slide *ngFor="let img of imgs" style="height:auto;width:auto">
+        <img src="https://ananasjam.com/donem/files/images/ilanlar/{{adID}}/{{img}}.jpg" style="height:244px;width:auto" (click)="viewimage(img)">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-card class="adtitle">
+    <ion-card-content>
+      <h2>{{adDetails.title}}</h2>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <div class="username">
+          <b>{{adDetails.name | uppercase}} {{adDetails.surname | uppercase}}</b>
+          <ion-label>{{adDetails.district}}, {{adDetails.neighborhood}}</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <ion-fab>
+          <ion-fab-button color="primary">
+            <ion-icon name="chatbubbles"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-list side="start">
+            <ion-button color="primary" shape="round" *ngIf="adDetails.phone_visb > 0">
+              <ion-icon slot="start" name="call"></ion-icon>
+              Telefon
+            </ion-button>
+            <ion-button color="primary" shape="round">
+              <ion-icon slot="start" name="chatbubble-ellipses"></ion-icon>
+              Mesaj
+            </ion-button>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-segment [(ngModel)]="segment" color="primary">
+    <ion-segment-button value="data">
+      BİLGİLER
+    </ion-segment-button>
+    <ion-segment-button value="descr">
+      AÇIKLAMA
+    </ion-segment-button>
+    <ion-segment-button value="location">
+      KONUM
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'data'">
+      <ion-item>
+        Fiyat
+        <p slot="end">{{adDetails.price}}</p>
+      </ion-item>
+      <ion-item>
+        İlan Tarihi
+        <p slot="end">{{timeConverter(adDetails.date)}}</p>
+      </ion-item>
+      <ion-item>
+        İlan Numarası
+        <p slot="end" (click)="ilanNoCopy()" style="color:#2c023d">{{adID}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'descr'">
+      <p id="descr">
+        {{adDetails.description}}
+      </p>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'location'">
+      
+    </ion-list>
+  </div>
+</ion-content>

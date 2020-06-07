@@ -1,0 +1,72 @@
+<div class="back">
+  <ion-button [routerLink]="['/add-ad']" routerDirection="backward" fill="clear" size="large">
+    <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+  </ion-button>
+  <img *ngIf="keybControl" src="../../assets/g852.png">
+</div>
+
+<ion-content>
+
+  <h1 class="header">İkinci El</h1>
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="floating">İlan Başlığı <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input [(ngModel)]="ad.title" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">İl <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input [(ngModel)]="ad.city" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">İlçe <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input [(ngModel)]="ad.district" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mahalle <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input [(ngModel)]="ad.nhood" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cadde/Sokak</ion-label>
+      <ion-input [(ngModel)]="ad.street" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fiyat <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input [(ngModel)]="ad.price" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Açıklama <ion-text color="danger">*</ion-text></ion-label>
+      <ion-textarea [(ngModel)]="ad.description" required="true" autoGrow="true"></ion-textarea>
+    </ion-item>
+
+    <ion-item (click)="openGallery()">
+      <ion-label>Fotoğraf Ekle</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="images.length!=0">
+      <ion-slides pager="true" paginationType="bullet" #slides>
+        <ion-slide *ngFor="let img of images" style="height:auto;width:100%">
+          <ion-fab vertical="top" horizontal="end" slot="fixed">
+            <ion-fab-button size="small" color="danger" (click)="deleteImg(img)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+          <img [src]="img" style="height:244px;width:auto" (click)="viewimage(img)">
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Telefon Num. Gözükebilir <ion-text color="danger">*</ion-text></ion-label>
+      <ion-checkbox [(ngModel)]="ad.phonevis"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="sendAd()" shape="round" id="send-button">Gönder</ion-button>
+
+</ion-content>

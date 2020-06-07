@@ -28,7 +28,7 @@
     <div class="categories"><h1>Kategoriler</h1></div>
     <ion-slides [options]="catSlideOpts" class="cat-slides">
       <ion-slide>
-        <ion-card mode="ios" button="true" type="button">
+        <ion-card mode="ios" button="true" type="button" [routerLink]="['/ads-shand']" routerDirection="forward">
           <span class="icon-sofa"></span>
           <ion-card-header>
             <ion-card-title>İkinci El</ion-card-title>
@@ -98,5 +98,15 @@
     </ion-slides>
 
   </div>
+
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="secondary" *ngIf="api.isLogin" [routerLink]="['/add-ad']" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="secondary" *ngIf="!api.isLogin" [routerLink]="['/login']" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

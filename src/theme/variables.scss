@@ -2,6 +2,11 @@
 // http://ionicframework.com/docs/theming/
 
 
+
+:focus {
+  outline: none;
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

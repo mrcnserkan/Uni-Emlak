@@ -1,0 +1,49 @@
+<ion-content>
+ <ion-grid>
+   <ion-row>
+     <h4>Eklemek istediğiniz ilan kategorisini seçiniz</h4>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward">
+         <span class="icon-sofa"></span>
+         <ion-card-header>
+           <ion-card-title>İkinci El</ion-card-title>
+         </ion-card-header>
+       </ion-card>
+     </ion-col>
+     <ion-col>
+       <ion-card mode="ios" button="true" type="button">
+         <span class="icon-laugh"></span>
+         <ion-card-header>
+           <ion-card-title>Ev Arkadaşı</ion-card-title>
+         </ion-card-header>
+       </ion-card>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <ion-card mode="ios" button="true" type="button">
+         <span class="icon-book"></span>
+         <ion-card-header>
+           <ion-card-title>Ders Notu</ion-card-title>
+         </ion-card-header>
+       </ion-card>
+     </ion-col>
+     <ion-col>
+       <ion-card mode="ios" button="true" type="button">
+         <span class="icon-education"></span>
+         <ion-card-header>
+           <ion-card-title>Özel Ders</ion-card-title>
+         </ion-card-header>
+         </ion-card>
+     </ion-col>
+   </ion-row>
+  </ion-grid>
+
+  <ion-button routerLink="/" routerDirection="root" id="back" fill="clear" size="large">
+    <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+  </ion-button>
+
+  <img src="../../assets/bottom.png" id="bottom">
+</ion-content>

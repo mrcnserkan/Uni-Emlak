@@ -7,20 +7,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense" class="ion-no-border">
-    <ion-toolbar mode="ios">
-      <ion-title>{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
+  <div id="myads" *ngIf="folder === 'İlanlarım'">
+    <ion-card mode="ios" button="true" type="button" *ngFor="let ad of adDetails">
+      <img src="{{ad.thumb}}" (click)="goAd(ad.ad_id)">
+      <div class="card-top">
+        <ion-chip>
+          <ion-icon name="location-sharp" color="light"></ion-icon>
+          <ion-label>{{ad.neighborhood}}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>{{ad.price}}&#8378;</ion-label>
+        </ion-chip>
+      </div>
+      <ion-card-header (click)="goAd(ad.ad_id)">
+        <ion-card-title>{{ad.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary">
-      <ion-icon name="add-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-folder',
@@ -8,8 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  adDetails = [];
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     switch (this.activatedRoute.snapshot.paramMap.get('id')) {
@@ -20,6 +22,17 @@ export class FolderPage implements OnInit {
         this.folder = this.activatedRoute.snapshot.paramMap.get('id');
         break;
     }
+
+
+    if (this.folder === 'İlanlarım') {
+      this.api.getData('ilan/user/' + this.api.userData.user_id).then((result) => {
+        this.adDetails = this.adDetails.concat(result);
+      });
+    }
+  }
+
+  goAd(adID: any) {
+    this.router.navigate(['/ad-detail/' + adID]);
   }
 
 }

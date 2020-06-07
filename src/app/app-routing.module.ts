@@ -26,6 +26,22 @@ const routes: Routes = [
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'add-ad',
+    loadChildren: () => import('./add-ad/add-ad.module').then( m => m.AddAdPageModule)
+  },
+  {
+    path: 'add-ad-shand',
+    loadChildren: () => import('./add-ad-shand/add-ad-shand.module').then( m => m.AddAdShandPageModule)
+  },
+  {
+    path: 'ads-shand',
+    loadChildren: () => import('./ads-shand/ads-shand.module').then( m => m.AdsShandPageModule)
+  },
+  {
+    path: 'ad-detail/:id',
+    loadChildren: () => import('./ad-detail/ad-detail.module').then( m => m.AdDetailPageModule)
   }
 ];
 

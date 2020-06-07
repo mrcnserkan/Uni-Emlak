@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
               localStorage.removeItem('notif');
               this.api.userData = null;
               this.api.isLogin = false;
-              this.service.presentToast('Başarıyla çıkış yaptınız', 'bottom', 1.1);
+              this.service.presentToast('Başarıyla çıkış yaptınız', 'top', 1.1);
             }
           }
         ]

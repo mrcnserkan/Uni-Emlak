@@ -1,0 +1,88 @@
+ion-content {
+    --background: #fffffffa;
+}
+
+ion-grid {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    transform: translateY(-40%);    
+}
+
+ion-row {
+    position: relative;
+    justify-content: center;
+}
+
+ion-row:first-child {
+    margin: 0 10px 30px 10px;
+}
+
+ion-card {
+    height: 130px;
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+ion-card-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ion-card-title {
+    font-size: 16px;
+}
+
+.icon-sofa {
+    background-image: url(../../assets/sofa.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-laugh {
+    background-image: url(../../assets/laugh.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-book {
+    background-image: url(../../assets/book.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+.icon-education {
+    background-image: url(../../assets/education.svg);
+    filter: invert(30%) sepia(94%) saturate(5901%) hue-rotate(291deg) brightness(45%) contrast(107%);
+    display: inline-block;
+    background-size: cover;
+    width: 72px;
+    height: 72px;
+}
+
+#bottom {
+    position: fixed;
+    bottom: -20px;
+    width: 100%;
+}
+
+#back {
+    position: absolute;
+    left: 7px;
+    top: 30px;
+}

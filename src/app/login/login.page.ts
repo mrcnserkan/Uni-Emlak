@@ -76,7 +76,7 @@ export class LoginPage implements OnInit {
             localStorage.setItem('notif', 'true');
             // this.oneSignal.sendTag("user_id", this.resposeData.userData.user_id);
             this.service.closeLoading();
-            this.service.presentToast('Başarıyla giriş yaptınız.', 'bottom');
+            this.service.presentToast('Başarıyla giriş yaptınız.', 'top');
             this.goHome();
           } else if (this.responseData.error === 'Onaysız hesap') {
             this.service.closeLoading();
