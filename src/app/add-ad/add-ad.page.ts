@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-add-ad',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddAdPage implements OnInit {
 
-  constructor() { }
+  constructor(private service: ServiceService) { }
 
   ngOnInit() {
+  }
+
+  pushAdType(adType) {
+    this.service.adtype = adType;
   }
 
 }

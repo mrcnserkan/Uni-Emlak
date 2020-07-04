@@ -42,6 +42,14 @@ const routes: Routes = [
   {
     path: 'ad-detail/:id',
     loadChildren: () => import('./ad-detail/ad-detail.module').then( m => m.AdDetailPageModule)
+  },
+  {
+    path: 'msg',
+    loadChildren: () => import('./msg/msg.module').then( m => m.MsgPageModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
   }
 ];
 

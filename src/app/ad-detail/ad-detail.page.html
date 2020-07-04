@@ -5,8 +5,8 @@
     </ion-buttons>
     <ion-title>İlan Detayları</ion-title>
     <ion-buttons slot="end">
-      <ion-button slot="icon-only">
-        <ion-icon name="heart-outline"></ion-icon>
+      <ion-button slot="icon-only" (click)="favori()">
+        <ion-icon name="{{ favoriIcon }}"></ion-icon>
       </ion-button>
       <ion-button slot="icon-only">
         <ion-icon name="share-social-outline"></ion-icon>
@@ -15,13 +15,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
   <div style="height:244px;background-color:#000">
-    <ion-slides pager="true" paginationType="bullet">
-      <ion-slide *ngFor="let img of imgs" style="height:auto;width:auto">
-        <img src="https://ananasjam.com/donem/files/images/ilanlar/{{adID}}/{{img}}.jpg" style="height:244px;width:auto" (click)="viewimage(img)">
-      </ion-slide>
+    <ion-slides *ngIf="imgs.length > 0" pager="true" paginationType="bullet">
+        <ion-slide *ngFor="let img of imgs" style="height:auto;width:auto">
+          <img src="https://ananasjam.com/donem/files/images/ilanlar/{{adID}}/{{img}}.jpg" style="height:244px;width:auto" (click)="viewimage(img)">
+        </ion-slide>
     </ion-slides>
+    <div *ngIf="imgs.length === 0">
+      <img src="https://ananasjam.com/donem/files/images/{{type}}.jpg" style="height:244px;width:100%">
+    </div>
   </div>
 
   <ion-card class="adtitle">
@@ -44,11 +47,11 @@
             <ion-icon name="chatbubbles"></ion-icon>
           </ion-fab-button>
           <ion-fab-list side="start">
-            <ion-button color="primary" shape="round" *ngIf="adDetails.phone_visb > 0">
+            <ion-button color="primary" shape="round" *ngIf="adDetails.phone_visb > 0" (click)="phone()">
               <ion-icon slot="start" name="call"></ion-icon>
               Telefon
             </ion-button>
-            <ion-button color="primary" shape="round">
+            <ion-button color="primary" shape="round" (click)="goMsg()">
               <ion-icon slot="start" name="chatbubble-ellipses"></ion-icon>
               Mesaj
             </ion-button>
@@ -65,15 +68,32 @@
     <ion-segment-button value="descr">
       AÇIKLAMA
     </ion-segment-button>
-    <ion-segment-button value="location">
+    <ion-segment-button value="location" (click)="loadMap()">
       KONUM
     </ion-segment-button>
   </ion-segment>
 
   <div [ngSwitch]="segment">
     <ion-list *ngSwitchCase="'data'">
-      <ion-item>
+      <ion-item *ngIf="type === 'housemate'">
+        Evin Türü
+        <p *ngIf="adDetails.gender === 'f'" slot="end">Erkek Öğrenci Evi</p>
+        <p *ngIf="adDetails.gender === 'm'" slot="end">Kız Öğrenci Evi</p>
+      </ion-item>
+      <ion-item *ngIf="type === 'shand'">
         Fiyat
+        <p slot="end">{{adDetails.price}}</p>
+      </ion-item>
+      <ion-item *ngIf="type === 'housemate'">
+        Evin Kirası
+        <p slot="end">{{adDetails.price}}</p>
+      </ion-item>
+      <ion-item *ngIf="type === 'lecturenotes'">
+        Notun Fiyatı
+        <p slot="end">{{adDetails.price}}</p>
+      </ion-item>
+      <ion-item *ngIf="type === 'privlesson'">
+        Ders Saatlik Ücreti
         <p slot="end">{{adDetails.price}}</p>
       </ion-item>
       <ion-item>
@@ -93,7 +113,7 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'location'">
-      
+      <div id="map" style="width: 100%; height: 500px"></div>
     </ion-list>
   </div>
 </ion-content>

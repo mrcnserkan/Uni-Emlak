@@ -15,18 +15,19 @@
   </div>
 
   <div class="content">
-    <ion-list>
-      <ion-item lines="none">
+    <ion-list *ngIf="talks.length>0">
+      <ion-item lines="none" *ngFor="let talk of talks" (click)="goMsg(talk.to_id, talk.ad_id, talk.title, talk.name)">
         <ion-avatar slot="start">
           <img src="https://image.flaticon.com/icons/svg/149/149071.svg">
         </ion-avatar>
         <ion-label class="ion-text-wrap">
           <ion-text>
-            <h1>Donald Trump</h1>
+            <h1>{{ talk.name }}</h1>
           </ion-text>
-          <p>Oval ofisten beyaz koltuk</p>
+          <p>{{ talk.title }}</p>
         </ion-label>
-        <p class="lasttime" slot="end">45 dk önce</p>
+        <ion-badge *ngIf="talk.badge > 0" color="success" slot="end">{{ talk.badge }}</ion-badge>
+        <p *ngIf="talk.badge < 1" class=" lasttime" slot="end">{{ timeConverter(talk.last_date) }}</p>
       </ion-item>
     </ion-list>
   </div>

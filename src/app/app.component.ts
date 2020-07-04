@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ApiService } from './services/api.service';
 import { ServiceService } from './services/service.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,17 @@ import { ServiceService } from './services/service.service';
 })
 export class AppComponent implements OnInit {
 
+  badgeGet: any;
+  badge: any;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public api: ApiService,
     private service: ServiceService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private db: AngularFireDatabase
   ) {
     this.initializeApp();
   }
@@ -37,7 +42,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Favoriler',
-      url: '/folder/Favoriler',
+      url: '/favorites',
       icon: 'heart'
     },
     {
@@ -78,6 +83,31 @@ export class AppComponent implements OnInit {
     } else {
       this.api.isLogin = false;
     }
+
+    if (this.api.isLogin) {
+      this.getBadge();
+      // tslint:disable-next-line:radix
+      this.db.object('/check/' + parseInt(this.api.userData.user_id) + '/status').valueChanges().subscribe(data => {
+        // console.log(data);
+        if (Boolean(data)) {
+          this.getBadge();
+          // tslint:disable-next-line:radix
+          this.db.object('/check/' + parseInt(this.api.userData.user_id) + '/status').set(false);
+        }
+      });
+    }
+  }
+
+  getBadge() {
+    this.api.postData(this.api.userData, 'badgeGet').then((result) => {
+      this.badgeGet = result;
+      // console.log(this.badgeGet);
+      if (this.badgeGet.badge) {
+        this.badge = this.badgeGet.badge;
+      } else {
+        // error
+      }
+    });
   }
 
   async logoff() {
@@ -99,6 +129,7 @@ export class AppComponent implements OnInit {
             handler: () => {
               localStorage.removeItem('userData');
               localStorage.removeItem('notif');
+              localStorage.removeItem('favorites');
               this.api.userData = null;
               this.api.isLogin = false;
               this.service.presentToast('Başarıyla çıkış yaptınız', 'top', 1.1);

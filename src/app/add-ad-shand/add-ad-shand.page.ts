@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild, NgZone, ViewChildren} from '@angular/core';
+import {Component, OnInit, ViewChild } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ServiceService } from '../services/service.service';
 import { ApiService } from '../services/api.service';
-import { IonSlides, Platform } from '@ionic/angular';
+import { IonSlides } from '@ionic/angular';
 import {PhotoViewer} from '@ionic-native/photo-viewer/ngx';
 import {Router} from '@angular/router';
 
@@ -15,13 +15,11 @@ export class AddAdShandPage implements OnInit {
 
   keybControl = true;
   @ViewChild('slides', { static: false }) slides: IonSlides;
-  ad = { user_id: '', title: '', description: '', phonevis: true, city: '', district: '', nhood: '', street: '', doornum: '', price: '', imgs: '', token: '' };
+  ad = { user_id: '', title: '', description: '', phonevis: true, city: '', district: '', nhood: '', street: '', doornum: '', price: '', imgs: '', token: '', type: '', gender: '' };
   images: string[] = [];
   responseData: any;
 
   constructor(
-    private platform: Platform,
-    private zone: NgZone,
     private camera: Camera,
     private service: ServiceService,
     private api: ApiService,
@@ -33,6 +31,7 @@ export class AddAdShandPage implements OnInit {
   ngOnInit() {
     this.ad.user_id = this.api.userData.user_id;
     this.ad.token = this.api.userData.auth_key;
+    this.ad.type = this.service.adtype;
 
     if (localStorage.getItem('location')) {
       const location = JSON.parse(localStorage.getItem('location'));

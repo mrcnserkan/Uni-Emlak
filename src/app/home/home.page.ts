@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ApiService } from '../services/api.service';
+import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomePage implements OnInit {
     freeMode: true
   };
 
-  constructor(private geolocation: Geolocation, private api: ApiService) { }
+  constructor(private geolocation: Geolocation, private api: ApiService, private service: ServiceService) { }
 
   ngOnInit() {
     if (localStorage.getItem('location')) {
@@ -63,6 +64,10 @@ export class HomePage implements OnInit {
         console.log('Error getting location', error);
       });
     }
+  }
+
+  pushAdType(adType) {
+    this.service.adtype = adType;
   }
 
 }

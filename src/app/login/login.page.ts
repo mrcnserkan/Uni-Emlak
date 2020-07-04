@@ -68,6 +68,7 @@ export class LoginPage implements OnInit {
           this.responseData = result;
           // console.log(result);
           if (this.responseData.userData) {
+            localStorage.setItem('favorites', this.responseData.favorites);
             localStorage.setItem('userData', JSON.stringify(this.responseData));
             const data = JSON.parse(localStorage.getItem('userData'));
             this.api.userData = data.userData;

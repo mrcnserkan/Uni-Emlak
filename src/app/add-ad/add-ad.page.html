@@ -5,7 +5,7 @@
    </ion-row>
    <ion-row>
      <ion-col>
-       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward">
+       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward" (click)="pushAdType('shand')">
          <span class="icon-sofa"></span>
          <ion-card-header>
            <ion-card-title>İkinci El</ion-card-title>
@@ -13,7 +13,7 @@
        </ion-card>
      </ion-col>
      <ion-col>
-       <ion-card mode="ios" button="true" type="button">
+       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward" (click)="pushAdType('housemate')">
          <span class="icon-laugh"></span>
          <ion-card-header>
            <ion-card-title>Ev Arkadaşı</ion-card-title>
@@ -23,7 +23,7 @@
    </ion-row>
    <ion-row>
      <ion-col>
-       <ion-card mode="ios" button="true" type="button">
+       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward" (click)="pushAdType('lecturenotes')">
          <span class="icon-book"></span>
          <ion-card-header>
            <ion-card-title>Ders Notu</ion-card-title>
@@ -31,7 +31,7 @@
        </ion-card>
      </ion-col>
      <ion-col>
-       <ion-card mode="ios" button="true" type="button">
+       <ion-card mode="ios" button="true" type="button" [routerLink]="['/add-ad-shand']" routerDirection="forward" (click)="pushAdType('privlesson')">
          <span class="icon-education"></span>
          <ion-card-header>
            <ion-card-title>Özel Ders</ion-card-title>

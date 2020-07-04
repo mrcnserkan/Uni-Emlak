@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="secondary" mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button><img src="../../assets/menu.svg" style="width: 20px"></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-title>Favoriler</ion-title>
+    <span></span>
+  </div>
+
+  <div class="content">
+    <ion-card mode="ios" button="true" type="button" *ngFor="let fav of favs">
+      <img src="{{fav.thumb}}" (click)="goAd(fav.ad_id)">
+      <div class="card-top">
+        <ion-chip>
+          <ion-icon name="location-sharp" color="light"></ion-icon>
+          <ion-label>{{fav.neighborhood}}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>{{fav.price}}&#8378;</ion-label>
+        </ion-chip>
+      </div>
+      <ion-card-header (click)="goAd(ad.ad_id)">
+        <ion-card-title>{{fav.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>

@@ -8,6 +8,7 @@ export class ServiceService {
 
   public loader: any;
   public isLoading = false;
+  public adtype: string;
 
   constructor(
     private toastCtrl: ToastController,

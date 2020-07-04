@@ -7,7 +7,10 @@
 
 <ion-content>
 
-  <h1 class="header">İkinci El</h1>
+  <h1 class="header" *ngIf="ad.type === 'shand'">İkinci El</h1>
+  <h1 class="header" *ngIf="ad.type === 'housemate'">Ev Arkadaşı</h1>
+  <h1 class="header" *ngIf="ad.type === 'lecturenotes'">Ders Notu</h1>
+  <h1 class="header" *ngIf="ad.type === 'privlesson'">Özel Ders</h1>
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
       <ion-label position="floating">İlan Başlığı <ion-text color="danger">*</ion-text></ion-label>
@@ -35,8 +38,19 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Fiyat <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label *ngIf="ad.type === 'shand'" position="floating">Fiyat <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label *ngIf="ad.type === 'housemate'" position="floating">Kira <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label *ngIf="ad.type === 'lecturenotes'" position="floating">Not Fiyatı <ion-text color="danger">*</ion-text></ion-label>
+      <ion-label *ngIf="ad.type === 'privlesson'" position="floating">Saatlik Fiyat <ion-text color="danger">*</ion-text></ion-label>
       <ion-input [(ngModel)]="ad.price" required="true" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="ad.type === 'housemate'">
+      <ion-label>Lütfen seçiniz <ion-text color="danger">*</ion-text></ion-label>
+      <ion-select [(ngModel)]="ad.gender">
+        <ion-select-option value="f">Erkek Öğrenci Evi</ion-select-option>
+        <ion-select-option value="m">Kız Öğrenci Evi</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>

@@ -1,0 +1,49 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="secondary" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ msgAPI.ad_title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let msg of msgs">
+    <ion-card *ngIf="msg.from_id != api.userData.user_id" class="bubble-left">
+      <ion-card-content>
+        {{msg.msg}}
+        <div text-right style="color:#636363">
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="msg.from_id == api.userData.user_id" class="bubble-right">
+      <ion-card-content>
+        {{msg.msg}}
+        <div text-right style="color:#636363">
+        </div>
+        <!--<div text-right *ngIf="!msg.date">
+          <ion-spinner name="crescent" float-right></ion-spinner>
+        </div>-->
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+    <ion-col size="10">
+      <ion-card class="msg">
+        <ion-textarea [(ngModel)]="msgInput" name="msgInput" required="true" autoGrow="true" placeholder="Mesajınız..." type="text" id="msg" maxlength="500" minlength="1" enterkeyhint="send">
+        </ion-textarea>
+      </ion-card>
+    </ion-col>
+    <ion-col size="2" style="margin-top:6px">
+      <ion-fab>
+        <ion-fab-button color="secondary" size="small" (click)="msgSend()" [disabled]="msgInput.trim()==''">
+          <ion-icon name="send" style="zoom:0.8"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-col>
+  </ion-row>
+</ion-footer>

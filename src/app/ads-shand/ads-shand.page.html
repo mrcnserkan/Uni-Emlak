@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button icon="arrow-back-outline" text=""></ion-back-button>
     </ion-buttons>
-    <ion-title>İkinci El İlanları</ion-title>
+    <ion-title *ngIf="type === 'shand'">İkinci El İlanları</ion-title>
+    <ion-title *ngIf="type === 'housemate'">Ev Arkadaşı İlanları</ion-title>
+    <ion-title *ngIf="type === 'lecturenotes'">Ders Notu İlanları</ion-title>
+    <ion-title *ngIf="type === 'privlesson'">Özel Ders İlanları</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -22,24 +25,27 @@
     </ion-buttons>
   </ion-toolbar>
 
-  <ion-card mode="ios" button="true" type="button" *ngFor="let ad of adDetails">
-    <img src="{{ad.thumb}}" (click)="goAd(ad.ad_id)">
-    <div class="card-top">
-      <ion-chip>
-        <ion-icon name="location-sharp" color="light"></ion-icon>
-        <ion-label>{{ad.neighborhood}}</ion-label>
-      </ion-chip>
-      <ion-chip>
-        <ion-label>{{ad.price}}&#8378;</ion-label>
-      </ion-chip>
-    </div>
-    <ion-card-header (click)="goAd(ad.ad_id)">
-      <ion-card-title>{{ad.title}}</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  <div *ngIf="!isNull">
+    <ion-card mode="ios" button="true" type="button" *ngFor="let ad of adDetails">
+      <img src="{{ad.thumb}}" (click)="goAd(ad.ad_id)">
+      <div class="card-top">
+        <ion-chip>
+          <ion-icon name="location-sharp" color="light"></ion-icon>
+          <ion-label>{{ad.neighborhood}}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>{{ad.price}}&#8378;</ion-label>
+        </ion-chip>
+      </div>
+      <ion-card-header (click)="goAd(ad.ad_id)">
+        <ion-card-title>{{ad.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Yükleniyor...">
+    </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
 </ion-content>

@@ -16,6 +16,18 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const config = {
+  apiKey: 'AIzaSyCX6A_EqTqKkQZB4hK8Trj7ZfhoQqJqhJU',
+  authDomain: 'emlaktest-1522275449772.firebaseapp.com',
+  databaseURL: 'https://emlaktest-1522275449772.firebaseio.com',
+  projectId: 'emlaktest-1522275449772',
+  storageBucket: 'emlaktest-1522275449772.appspot.com',
+  messagingSenderId: '973218149383',
+  appId: '1:973218149383:web:56c63210b6f83f978a26a2'
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +39,8 @@ import { Clipboard } from '@ionic-native/clipboard/ngx';
     }),
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
